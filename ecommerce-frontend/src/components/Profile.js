@@ -3,12 +3,13 @@ import {
   Container,
   Typography,
   Box,
-  TextField,
   Button,
-  Checkbox,
+  TextField,
+  Paper,
+  Switch,
   FormControlLabel,
 } from '@mui/material';
-import axios from 'axios';
+import api from '../services/api';
 import { AuthContext } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 

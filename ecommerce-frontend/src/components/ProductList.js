@@ -1,16 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import { 
-  Container, 
-  Grid, 
-  Card, 
-  CardContent, 
-  CardMedia, 
-  Typography, 
-  Button, 
-  Box 
+import React, { useState, useEffect, useContext } from 'react';
+import {
+  Container,
+  Typography,
+  Box,
+  Button,
+  Grid,
+  Card,
+  CardContent,
+  CardMedia,
+  CardActions,
 } from '@mui/material';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
+import api from '../services/api';
+import { AuthContext } from '../context/AuthContext';
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);

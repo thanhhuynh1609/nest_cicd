@@ -1,7 +1,18 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { Container, Typography, Box, Card, CardContent, CardMedia, Button, Grid, Stack, TextField, Dialog, DialogTitle, DialogContent, DialogActions, Snackbar } from '@mui/material';
-import axios from 'axios';
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import {
+  Container,
+  Typography,
+  Box,
+  Button,
+  Card,
+  CardContent,
+  CardMedia,
+  Grid,
+  TextField,
+  Paper,
+} from '@mui/material';
+import { useParams, useNavigate } from 'react-router-dom';
+import api from '../services/api';
 import { AuthContext } from '../context/AuthContext';
 
 const ProductDetail = () => {

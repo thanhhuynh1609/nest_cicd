@@ -3,18 +3,14 @@ import {
   Container,
   Typography,
   Box,
+  Button,
+  Grid,
   Card,
   CardContent,
-  CardMedia,
-  Grid,
-  Divider,
+  CardActions,
   Chip,
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
 } from '@mui/material';
-import axios from 'axios';
+import api from '../services/api';
 import { AuthContext } from '../context/AuthContext';
 
 const SellerOrders = () => {

@@ -13,7 +13,7 @@ import {
   Avatar,
   CircularProgress,
 } from '@mui/material';
-import axios from 'axios';
+import api from '../services/api';
 import { AuthContext } from '../context/AuthContext';
 import DeleteIcon from '@mui/icons-material/Delete';
 

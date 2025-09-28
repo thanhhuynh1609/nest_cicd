@@ -3,19 +3,22 @@ import {
   Container,
   Typography,
   Box,
+  Button,
+  TextField,
+  Paper,
   Grid,
   Card,
   CardContent,
-  CardMedia,
-  Button,
-  TextField,
+  CardActions,
   Dialog,
   DialogTitle,
   DialogContent,
   DialogActions,
 } from '@mui/material';
-import axios from 'axios';
+import api from '../services/api';
 import { AuthContext } from '../context/AuthContext';
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 const ProductManage = () => {
   const { token } = useContext(AuthContext);

@@ -1,16 +1,15 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { useParams } from 'react-router-dom';
 import {
   Container,
   Typography,
   Box,
-  Paper,
+  Card,
+  CardContent,
   Grid,
-  Avatar,
   Chip,
-  Button,
 } from '@mui/material';
-import axios from 'axios';
+import { useParams } from 'react-router-dom';
+import api from '../services/api';
 import { AuthContext } from '../context/AuthContext';
 import { Link } from 'react-router-dom';
 

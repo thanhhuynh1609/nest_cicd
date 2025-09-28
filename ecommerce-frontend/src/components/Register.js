@@ -1,24 +1,20 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import {
   TextField,
   Button,
   Container,
   Typography,
   Box,
-  Checkbox,
-  FormControlLabel,
-  Paper
+  Paper,
 } from '@mui/material';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../context/AuthContext';
+import api from '../services/api';
 
 const Register = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [seller, setSeller] = useState(false);
   const [error, setError] = useState('');
-  const { login } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -29,7 +25,6 @@ const Register = () => {
         password,
         seller,
       });
-      login(response.data.user, response.data.token);
       navigate('/');
     } catch (err) {
       setError(err.response?.data?.message || 'Đăng ký thất bại');

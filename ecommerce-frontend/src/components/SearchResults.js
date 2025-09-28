@@ -1,14 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
-import { 
-  Container, 
-  Typography, 
-  Grid, 
-  CircularProgress,
+import React, { useState, useEffect } from 'react';
+import {
+  Container,
+  Typography,
   Box,
-  Alert
+  Grid,
+  Card,
+  CardContent,
+  CardMedia,
+  CardActions,
+  Button,
 } from '@mui/material';
-import axios from 'axios';
+import { useSearchParams, Link } from 'react-router-dom';
+import api from '../services/api';
 import ProductCard from './ProductCard';
 
 const SearchResults = () => {
@@ -84,3 +87,4 @@ const SearchResults = () => {
 };
 
 export default SearchResults;
+

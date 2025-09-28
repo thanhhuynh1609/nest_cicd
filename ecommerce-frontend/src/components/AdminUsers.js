@@ -3,18 +3,15 @@ import {
   Container,
   Typography,
   Box,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Paper,
   Button,
+  Grid,
+  Card,
+  CardContent,
+  CardActions,
 } from '@mui/material';
-import DeleteIcon from '@mui/icons-material/Delete';
-import axios from 'axios';
+import api from '../services/api';
 import { AuthContext } from '../context/AuthContext';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 const AdminUsers = () => {
   const { token } = useContext(AuthContext);
