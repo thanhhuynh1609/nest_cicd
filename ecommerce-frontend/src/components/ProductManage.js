@@ -32,7 +32,7 @@ const ProductManage = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await api.get('/api/product/mine', {
+        const response = await api.get('/product/mine', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setProducts(response.data);

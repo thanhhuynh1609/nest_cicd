@@ -27,7 +27,7 @@ const SellerOrders = () => {
   useEffect(() => {
     const fetchSellerOrders = async () => {
       try {
-        const response = await api.get('/api/order/seller-orders', {
+        const response = await api.get('/order/seller-orders', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setOrders(response.data);

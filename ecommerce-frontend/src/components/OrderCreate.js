@@ -29,7 +29,7 @@ const OrderCreate = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await api.get('/api/product');
+        const response = await api.get('/product');
         setProducts(response.data);
       } catch (err) {
         setError('Không thể tải danh sách sản phẩm');

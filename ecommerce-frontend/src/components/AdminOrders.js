@@ -27,7 +27,7 @@ const AdminOrders = () => {
     const fetchOrders = async () => {
       try {
         setLoading(true);
-        const response = await api.get('/api/order/admin/orders', {
+        const response = await api.get('/order/admin/orders', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setOrders(response.data || []);

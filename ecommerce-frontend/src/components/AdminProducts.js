@@ -30,7 +30,7 @@ const AdminProducts = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await api.get('/api/admin/products', {
+        const response = await api.get('/admin/products', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setProducts(response.data);
