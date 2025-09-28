@@ -5,7 +5,9 @@ WORKDIR /app
 
 # Copy package files
 COPY package*.json ./
-RUN npm install --production
+
+# Cài đầy đủ dependencies (cả devDependencies) để build được
+RUN npm install
 
 # Copy source code
 COPY . .
@@ -18,7 +20,7 @@ FROM node:18-alpine AS production
 
 WORKDIR /app
 
-# Copy package files and install production dependencies
+# Copy package files and install only production dependencies
 COPY package*.json ./
 RUN npm install --production && npm cache clean --force
 
