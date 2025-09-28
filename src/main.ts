@@ -1,8 +1,8 @@
 import { NestFactory } from '@nestjs/core';
 import { ExpressAdapter } from '@nestjs/platform-express';
 import 'dotenv/config';
-import * as Express from 'express';
-import * as cors from 'cors';
+import express from 'express';
+import cors from 'cors';
 
 import { AppModule } from './app.module';
 import { AdminSeederService } from './shared/admin-seeder.service';
@@ -13,7 +13,7 @@ if (process.env.NODE_ENV === 'test') {
   console.log('using database', process.env.MONGO_URI);
 }
 
-const server = Express();
+const server = express();
 server.use(cors());
 server.get('/', (req, res) => res.send('ok'));
 server.get('/_ah/health', (req, res) => res.send('ok'));
@@ -32,4 +32,5 @@ async function bootstrap() {
   console.log('Default admin user: admin / 123');
 }
 bootstrap();
+
 
