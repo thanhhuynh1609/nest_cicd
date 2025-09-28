@@ -7,7 +7,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install all dependencies including devDependencies for build
-RUN npm ci
+RUN npm install
 
 # Copy source code
 COPY . .
@@ -22,7 +22,7 @@ WORKDIR /app
 
 # Copy package files and install only production dependencies
 COPY package*.json ./
-RUN npm ci --only=production && npm cache clean --force
+RUN npm install --omit=dev && npm cache clean --force
 
 # Copy built application from builder stage
 COPY --from=builder /app/dist ./dist
@@ -35,4 +35,5 @@ USER nestjs
 EXPOSE 8080
 
 CMD ["node", "dist/main.js"]
+
 
