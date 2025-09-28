@@ -7,6 +7,9 @@ import {
   CardContent,
   Grid,
   Chip,
+  Button,
+  Paper,
+  Avatar,
 } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import api from '../services/api';
@@ -119,3 +122,4 @@ const OrderDetail = () => {
 };
 
 export default OrderDetail;
+

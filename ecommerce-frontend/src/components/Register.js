@@ -6,6 +6,8 @@ import {
   Typography,
   Box,
   Paper,
+  FormControlLabel,
+  Checkbox,
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import api from '../services/api';

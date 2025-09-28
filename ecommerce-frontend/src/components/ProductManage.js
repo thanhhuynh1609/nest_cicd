@@ -14,6 +14,7 @@ import {
   DialogTitle,
   DialogContent,
   DialogActions,
+  CardMedia,
 } from '@mui/material';
 import api from '../services/api';
 import { AuthContext } from '../context/AuthContext';

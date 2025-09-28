@@ -9,8 +9,10 @@ import {
   CardMedia,
   CardActions,
   Button,
+  CircularProgress,
+  Alert,
 } from '@mui/material';
-import { useSearchParams, Link } from 'react-router-dom';
+import { useSearchParams, Link, useLocation } from 'react-router-dom';
 import api from '../services/api';
 import ProductCard from './ProductCard';
 
@@ -87,4 +89,5 @@ const SearchResults = () => {
 };
 
 export default SearchResults;
+
 

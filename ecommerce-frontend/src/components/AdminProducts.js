@@ -9,6 +9,14 @@ import {
   CardContent,
   CardActions,
   Chip,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+  Avatar,
 } from '@mui/material';
 import api from '../services/api';
 import { AuthContext } from '../context/AuthContext';
