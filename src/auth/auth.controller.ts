@@ -23,7 +23,7 @@ export class AuthController {
     const token = await this.authService.signPayload(payload);
   return { 
     user: {
-      _id: user._id,
+      id: user.id,
       username: user.username,
       seller: user.seller,
       admin: user.admin, // Đảm bảo có trường này
@@ -45,3 +45,4 @@ export class AuthController {
     return { user, token };
   }
 }
+

@@ -6,13 +6,13 @@ WORKDIR /app
 # Copy package files
 COPY package*.json ./
 
-# Cài đầy đủ dependencies (cả devDependencies) để build được
-RUN npm install
+# Install all dependencies including devDependencies for build
+RUN npm ci
 
 # Copy source code
 COPY . .
 
-# Build the application
+# Build the application with skip lib check
 RUN npm run build
 
 # Production stage
@@ -22,7 +22,7 @@ WORKDIR /app
 
 # Copy package files and install only production dependencies
 COPY package*.json ./
-RUN npm install --production && npm cache clean --force
+RUN npm ci --only=production && npm cache clean --force
 
 # Copy built application from builder stage
 COPY --from=builder /app/dist ./dist
@@ -35,3 +35,4 @@ USER nestjs
 EXPOSE 8080
 
 CMD ["node", "dist/main.js"]
+
