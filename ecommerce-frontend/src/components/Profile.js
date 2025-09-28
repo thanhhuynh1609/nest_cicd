@@ -33,7 +33,7 @@ const Profile = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/api/user/me', {
+        const response = await api.get('/user/me', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setFormData({
@@ -83,7 +83,7 @@ const Profile = () => {
         updateData.password = password;
       }
 
-      await axios.put('http://localhost:8080/api/user', updateData, {
+      await api.put('/user', updateData, {
         headers: { Authorization: `Bearer ${token}` },
       });
 

@@ -11,7 +11,7 @@ import {
   Avatar,
   Chip, // Thêm Chip để hiển thị trạng thái
 } from '@mui/material';
-import axios from 'axios';
+import api from '../services/api';
 import { AuthContext } from '../context/AuthContext';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -24,7 +24,7 @@ const OrderList = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/api/order', {
+        const response = await api.get('/order', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setOrders(response.data);
@@ -43,7 +43,7 @@ const OrderList = () => {
   const handleDeleteOrder = async (orderId) => {
     if (window.confirm('Bạn có chắc chắn muốn xóa đơn hàng này?')) {
       try {
-        const response = await axios.delete(`http://localhost:8080/api/order/${orderId}`, {
+        const response = await api.delete(`/order/${orderId}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         

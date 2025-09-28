@@ -41,8 +41,8 @@ const ProductDetail = () => {
         }]
       };
       
-      await axios.post(
-        'http://localhost:8080/api/order',
+      await api.post(
+        '/order',
         orderData,
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -58,7 +58,7 @@ const ProductDetail = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await axios.get(`http://localhost:8080/api/product/${id}`);
+        const response = await api.get(`/product/${id}`);
         setProduct(response.data);
       } catch (err) {
         setError('Không thể tải sản phẩm');

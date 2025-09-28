@@ -23,7 +23,7 @@ const OrderDetail = () => {
   useEffect(() => {
     const fetchOrder = async () => {
       try {
-        const response = await axios.get(`http://localhost:8080/api/order/${id}`, {
+        const response = await api.get(`/order/${id}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setOrder(response.data);

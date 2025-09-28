@@ -27,7 +27,7 @@ const AdminOrders = () => {
     const fetchOrders = async () => {
       try {
         setLoading(true);
-        const response = await axios.get('http://localhost:8080/api/order/admin/orders', {
+        const response = await api.get('/api/order/admin/orders', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setOrders(response.data || []);
@@ -57,7 +57,7 @@ const AdminOrders = () => {
 
   const handleDelete = async (orderId) => {
     try {
-      await axios.delete(`http://localhost:8080/api/admin/orders/${orderId}`, {
+      await api.delete(`/admin/orders/${orderId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setOrders(orders.filter((order) => order.id !== orderId));

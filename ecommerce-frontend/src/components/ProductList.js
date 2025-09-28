@@ -19,7 +19,7 @@ const ProductList = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/api/product');
+        const response = await api.get('/product');
         setProducts(response.data);
       } catch (err) {
         setError('Failed to load products');

@@ -28,7 +28,7 @@ const ProductManage = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/api/product/mine', {
+        const response = await api.get('/api/product/mine', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setProducts(response.data);
@@ -63,19 +63,19 @@ const ProductManage = () => {
     e.preventDefault();
     try {
       if (editId) {
-        await axios.put(
-          `http://localhost:8080/api/product/${editId}`,
+        await api.put(
+          `/product/${editId}`,
           { ...form, price: parseFloat(form.price) },
           { headers: { Authorization: `Bearer ${token}` } }
         );
       } else {
-        await axios.post(
-          'http://localhost:8080/api/product',
+        await api.post(
+          '/product',
           { ...form, price: parseFloat(form.price) },
           { headers: { Authorization: `Bearer ${token}` } }
         );
       }
-      const response = await axios.get('http://localhost:8080/api/product/mine', {
+      const response = await api.get('/product/mine', {
         headers: { Authorization: `Bearer ${token}` },
       });
       setProducts(response.data);
@@ -87,7 +87,7 @@ const ProductManage = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:8080/api/product/${id}`, {
+      await api.delete(`/product/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setProducts(products.filter((p) => p.id !== id)); // Đổi từ p._id thành p.id

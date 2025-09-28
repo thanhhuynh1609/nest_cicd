@@ -25,7 +25,7 @@ const OrderCreate = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/api/product');
+        const response = await api.get('/api/product');
         setProducts(response.data);
       } catch (err) {
         setError('Không thể tải danh sách sản phẩm');
@@ -47,8 +47,8 @@ const OrderCreate = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(
-        'http://localhost:8080/api/order',
+      await api.post(
+        '/order',
         { products: selectedProducts },
         { headers: { Authorization: `Bearer ${token}` } },
       );

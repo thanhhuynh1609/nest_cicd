@@ -26,7 +26,7 @@ const AdminProducts = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/api/admin/products', {
+        const response = await api.get('/api/admin/products', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setProducts(response.data);
@@ -39,7 +39,7 @@ const AdminProducts = () => {
 
   const handleDelete = async (productId) => {
     try {
-      await axios.delete(`http://localhost:8080/api/admin/products/${productId}`, {
+      await api.delete(`/admin/products/${productId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setProducts(products.filter((product) => product.id !== productId)); // Đổi từ product._id thành product.id

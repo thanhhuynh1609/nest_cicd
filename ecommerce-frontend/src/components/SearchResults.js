@@ -31,8 +31,8 @@ const SearchResults = () => {
       setError(null);
       
       try {
-        const response = await axios.get(
-          `http://localhost:8080/api/product/search?title=${encodeURIComponent(searchTerm)}`
+        const response = await api.get(
+          `/product/search?title=${encodeURIComponent(searchTerm)}`
         );
         setResults(response.data);
       } catch (err) {

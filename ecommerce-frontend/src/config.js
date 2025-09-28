@@ -1,7 +1,7 @@
 const config = {
-  API_URL: process.env.NODE_ENV === 'production' 
-    ? 'https://icoud.onrender.com/api'
-    : 'http://localhost:8080/api'
+  API_URL: window.location.hostname === 'localhost' 
+    ? 'http://localhost:8080/api'
+    : 'https://icoud.onrender.com/api'
 };
 
 export default config;

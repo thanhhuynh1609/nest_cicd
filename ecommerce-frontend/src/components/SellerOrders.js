@@ -25,7 +25,7 @@ const SellerOrders = () => {
   useEffect(() => {
     const fetchSellerOrders = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/api/order/seller-orders', {
+        const response = await api.get('/api/order/seller-orders', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setOrders(response.data);
@@ -38,8 +38,8 @@ const SellerOrders = () => {
 
   const handleStatusChange = async (orderId, newStatus) => {
     try {
-      const response = await axios.patch(
-        `http://localhost:8080/api/order/seller-orders/${orderId}/status`,
+      const response = await api.patch(
+        `/order/seller-orders/${orderId}/status`,
         { trangThai: newStatus },
         { headers: { Authorization: `Bearer ${token}` } }
       );
