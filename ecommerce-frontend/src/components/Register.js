@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 import {
   TextField,
   Button,
@@ -279,7 +280,8 @@ const Register = () => {
             <Typography variant="body2" color="text.secondary">
               Đã có tài khoản?{' '}
               <Typography
-                component="span"
+                component={Link}
+                to="/login"
                 sx={{
                   color: '#4CAF50',
                   fontWeight: 600,

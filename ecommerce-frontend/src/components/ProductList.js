@@ -17,6 +17,26 @@ import { AuthContext } from '../context/AuthContext';
 const ProductList = () => {
   const [products, setProducts] = useState([]);
   const [error, setError] = useState('');
+  const testimonials = [
+    {
+      name: "Trần Linh",
+      text: "Sản phẩm chất lượng, chất vải mềm mát mặc vào rất thoải mái và dễ hoạt động, giá cả hợp lý, giao hàng nhanh",
+      image: "https://randomuser.me/api/portraits/men/32.jpg",
+      rating: 5,
+    },
+    {
+      name: "Nguyên An",
+      text: "Sản phẩm đẹp, chất liệu tốt, mặc đúng size chuẩn, nhân viên phục vụ rất tận tình và chu đáo. 10 điểm!",
+      image: "https://randomuser.me/api/portraits/men/45.jpg",
+      rating: 5,
+    },
+    {
+      name: "Tuấn Trần",
+      text: "Giao hàng nhanh, anh shipper thân thiện. Sản phẩm đẹp, đã mua nhiều lần và sẽ tiếp tục ủng hộ shop",
+      image: "https://randomuser.me/api/portraits/men/67.jpg",
+      rating: 5,
+    },
+  ];
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -29,6 +49,60 @@ const ProductList = () => {
     };
     fetchProducts();
   }, []);
+   const styles = {
+    section: {
+      marginTop: "100px",
+      backgroundColor: "#f5f5f5",
+      padding: "50px 20px",
+      textAlign: "center",
+    },
+    title: {
+      fontSize: "28px",
+      fontWeight: "bold",
+      marginBottom: "40px",
+    },
+    container: {
+      display: "grid",
+      gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+      gap: "20px",
+      maxWidth: "1200px",
+      margin: "0 auto",
+    },
+    card: {
+      backgroundColor: "#fff",
+      borderRadius: "8px",
+      padding: "20px",
+      boxShadow: "0 2px 6px rgba(0,0,0,0.1)",
+      textAlign: "left",
+    },
+    name: {
+      fontSize: "18px",
+      fontWeight: "bold",
+      marginBottom: "8px",
+    },
+    stars: {
+      color: "#f1c40f",
+      marginBottom: "12px",
+    },
+    text: {
+      fontSize: "14px",
+      lineHeight: "1.6",
+      marginBottom: "15px",
+    },
+    img: {
+      width: "60px",
+      height: "60px",
+      borderRadius: "50%",
+      objectFit: "cover",
+    },
+    footer: {
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      borderTop: "1px solid #eee",
+      paddingTop: "12px",
+    },
+  };
 
   return (
   <Container maxWidth="xl" sx={{ py: 2 }}>
@@ -54,7 +128,7 @@ const ProductList = () => {
         }}
       >
         <img
-          src="https://img.pikbest.com/origin/06/39/82/40WpIkbEsTaBv.jpg!w700wp"
+          src="https://marketplace.canva.com/EAFoEJMTGiI/1/0/1600w/canva-beige-aesthetic-new-arrival-fashion-banner-landscape-cNjAcBMeF9s.jpg"
           alt="Best Seller Banner"
           style={{ 
             width: "100%", 
@@ -347,6 +421,24 @@ const ProductList = () => {
           </Grid>
         ))}
       </Grid>
+      <section style={styles.section}>
+      <h2 style={styles.title}>Khách hàng đã nói gì</h2>
+      <div style={styles.container}>
+        {testimonials.map((t, index) => (
+          <div key={index} style={styles.card}>
+            <div style={styles.name}>{t.name}</div>
+            <div style={styles.stars}>
+              {"★".repeat(t.rating)}{"☆".repeat(5 - t.rating)}
+            </div>
+            <p style={styles.text}>{t.text}</p>
+            <div style={styles.footer}>
+              <span></span>
+              <img src={t.image} alt={t.name} style={styles.img} />
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
     </Box>
   </Container>
 );

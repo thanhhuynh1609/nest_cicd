@@ -17,6 +17,7 @@ import AdminUsers from './components/AdminUsers';
 import AdminOrders from './components/AdminOrders';
 import AdminProducts from './components/AdminProducts';
 import SearchResults from './components/SearchResults';
+import Footer from './components/Footer';
 
 const App = () => {
   return (
@@ -43,6 +44,7 @@ const App = () => {
           <Route path="*" element={<h1>404 - Page Not Found</h1>} />
         </Routes>
       </Router>
+      <Footer/>
     </AuthProvider>
   );
 };
