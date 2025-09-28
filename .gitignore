@@ -102,7 +102,7 @@ typings/
 # End of https://www.gitignore.io/api/node,linux
 dist/
 yarn.lock
-package-lock.json
+# package-lock.json
 
 .DS_Store
 app.yaml
