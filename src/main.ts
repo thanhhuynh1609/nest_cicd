@@ -5,6 +5,7 @@ import * as Express from 'express';
 import * as cors from 'cors';
 
 import { AppModule } from './app.module';
+import { AdminSeederService } from './shared/admin-seeder.service';
 
 if (process.env.NODE_ENV === 'test') {
   process.env.MONGO_URI = process.env.MONGO_URI_TEST;
@@ -21,6 +22,14 @@ server.get('/_ah/start', (req, res) => res.send('ok'));
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, new ExpressAdapter(server));
   app.setGlobalPrefix('api');
+  
+  // Chạy admin seeder
+  const adminSeeder = app.get(AdminSeederService);
+  await adminSeeder.seedAdmin();
+  
   await app.listen(process.env.PORT);
+  console.log(`Application is running on: http://localhost:${process.env.PORT}`);
+  console.log('Default admin user: admin / 123');
 }
 bootstrap();
+

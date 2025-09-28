@@ -5,11 +5,13 @@ import { User } from '../entities/user.entity';
 import { HttpExceptionFilter } from './http-exception.filter';
 import { LoggingInterceptor } from './logging.interceptor';
 import { UserService } from './user.service';
+import { AdminSeederService } from './admin-seeder.service';
 
 @Module({
   imports: [TypeOrmModule.forFeature([User])],
   providers: [
     UserService,
+    AdminSeederService,
     {
       provide: APP_FILTER,
       useClass: HttpExceptionFilter,
@@ -19,7 +21,8 @@ import { UserService } from './user.service';
       useClass: LoggingInterceptor,
     },
   ],
-  exports: [UserService],
+  exports: [UserService, AdminSeederService],
 })
 export class SharedModule {}
+
 
