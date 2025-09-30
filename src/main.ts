@@ -2,7 +2,7 @@ import { NestFactory } from '@nestjs/core';
 import { ExpressAdapter } from '@nestjs/platform-express';
 import 'dotenv/config';
 import express from 'express';
-import * as cors from 'cors';
+import cors = require('cors');
 
 import { AppModule } from './app.module';
 import { AdminSeederService } from './shared/admin-seeder.service';
