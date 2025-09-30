@@ -68,7 +68,7 @@ describe('AUTH', () => {
       .set('Accept', 'application/json')
       .send(user)
       .expect(({ body }) => {
-        expect(body.message).toEqual('User already exists');
+        expect(body.message).toEqual('Tên tài khoản đã được đăng ký!');
       })
       .expect(HttpStatus.BAD_REQUEST);
   });

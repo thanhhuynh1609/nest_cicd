@@ -7,17 +7,19 @@
     "experimentalDecorators": true,
     "target": "es2020",
     "sourceMap": true,
-    "outDir": "./dist",
+    "outDir": "./build",
     "baseUrl": "./",
     "skipLibCheck": true,
     "strict": false,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true
   },
-  "exclude": ["node_modules"],
+  "exclude": ["dist", "node_modules"],
   "paths": {
     "@app/*": ["src/*"],
     "@test/*": ["test/*"]
   }
 }
+
+
 
