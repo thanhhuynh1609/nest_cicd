@@ -2,7 +2,7 @@ import { NestFactory } from '@nestjs/core';
 import { ExpressAdapter } from '@nestjs/platform-express';
 import 'dotenv/config';
 import express from 'express';
-import cors from 'cors';
+import * as cors from 'cors';
 
 import { AppModule } from './app.module';
 import { AdminSeederService } from './shared/admin-seeder.service';
@@ -27,10 +27,11 @@ async function bootstrap() {
   const adminSeeder = app.get(AdminSeederService);
   await adminSeeder.seedAdmin();
   
-  await app.listen(process.env.PORT);
-  console.log(`Application is running on: http://localhost:${process.env.PORT}`);
+  await app.listen(process.env.PORT || 8080);
+  console.log(`Application is running on: http://localhost:${process.env.PORT || 8080}`);
   console.log('Default admin user: admin / 123');
 }
 bootstrap();
+
 
 
