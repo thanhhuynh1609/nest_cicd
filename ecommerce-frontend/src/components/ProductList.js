@@ -128,6 +128,15 @@ const ProductList = () => {
         }}
       >
         <img
+          src="https://media-static.cdnproz1.online/cakhiastatic/8xbet-700x70-6.gif"
+          style={{
+            width: "100%", 
+            height: "auto",
+            display: "block",
+            marginBottom: "20px"
+          }}
+        />
+        <img
           src="https://marketplace.canva.com/EAFoEJMTGiI/1/0/1600w/canva-beige-aesthetic-new-arrival-fashion-banner-landscape-cNjAcBMeF9s.jpg"
           alt="Best Seller Banner"
           style={{ 
