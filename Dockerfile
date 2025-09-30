@@ -15,6 +15,10 @@ COPY . .
 # Build the application with skip lib check
 RUN npm run build
 
+# Debug: List contents to see what was built
+RUN ls -la /app/
+RUN ls -la /app/dist/ || echo "dist folder not found"
+
 # Production stage
 FROM node:18-alpine AS production
 
@@ -35,5 +39,6 @@ USER nestjs
 EXPOSE 8080
 
 CMD ["node", "dist/main.js"]
+
 
 

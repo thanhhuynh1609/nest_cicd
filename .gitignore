@@ -101,6 +101,7 @@ typings/
 
 # End of https://www.gitignore.io/api/node,linux
 dist/
+build/
 yarn.lock
 # package-lock.json
 

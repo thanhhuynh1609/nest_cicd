@@ -5,14 +5,18 @@
     "removeComments": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
     "target": "es2020",
     "sourceMap": true,
-    "outDir": "./build",
+    "outDir": "./dist",
     "baseUrl": "./",
+    "incremental": true,
     "skipLibCheck": true,
-    "strict": false,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true
+    "strictNullChecks": false,
+    "noImplicitAny": false,
+    "strictBindCallApply": false,
+    "forceConsistentCasingInFileNames": false,
+    "noFallthroughCasesInSwitch": false
   },
   "exclude": ["dist", "node_modules"],
   "paths": {
@@ -20,6 +24,8 @@
     "@test/*": ["test/*"]
   }
 }
+
+
 
 
 
