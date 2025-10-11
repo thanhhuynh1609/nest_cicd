@@ -38,11 +38,11 @@ const Register = () => {
   <Container maxWidth="sm">
     <Box 
       sx={{ 
-        minHeight: '100vh',
+        // minHeight: '100vh',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        background: 'linear-gradient(135deg, #4CAF50 0%, #45a049 100%)',
+        // background: 'linear-gradient(135deg, #4CAF50 0%, #45a049 100%)',
         py: 4
       }}
     >
@@ -66,7 +66,7 @@ const Register = () => {
             left: 0,
             right: 0,
             height: '4px',
-            background: 'linear-gradient(90deg, #4CAF50, #45a049, #4CAF50)',
+            // background: 'linear-gradient(90deg, #4CAF50, #45a049, #4CAF50)',
             backgroundSize: '200% 100%',
             animation: 'shimmer 3s ease-in-out infinite',
             '@keyframes shimmer': {
@@ -78,7 +78,7 @@ const Register = () => {
       >
         {/* Header Section */}
         <Box sx={{ textAlign: 'center', mb: 4 }}>
-          <Box
+          {/* <Box
             sx={{
               width: 80,
               height: 80,
@@ -93,7 +93,7 @@ const Register = () => {
             }}
           >
             ✨
-          </Box>
+          </Box> */}
           <Typography 
             variant="h3" 
             sx={{
@@ -258,9 +258,9 @@ const Register = () => {
               fontSize: '16px',
               fontWeight: 700,
               textTransform: 'none',
-              background: 'linear-gradient(45deg, #4CAF50 30%, #45a049 90%)',
-              boxShadow: '0 8px 32px rgba(76, 175, 80, 0.4)',
-              color: 'white',
+              // background: 'linear-gradient(45deg, #4CAF50 30%, #45a049 90%)',
+              boxShadow: '0 8px 32px rgba(46, 51, 46, 0.4)',
+              color: 'black',
               mb: 2,
               '&:hover': {
                 background: 'linear-gradient(45deg, #45a049 30%, #388e3c 90%)',

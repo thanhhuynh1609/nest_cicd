@@ -196,7 +196,7 @@ const SellerOrders = () => {
                     </Box>
 
                     <Chip
-                      label={`💰 Tổng tiền: $${order.totalPrice}`}
+                      label={`💰 Tổng tiền: ${order.tongTien} VND`}
                       sx={{
                         background: 'linear-gradient(45deg, #4CAF50, #45a049)',
                         color: 'white',
@@ -392,7 +392,7 @@ const SellerOrders = () => {
                                     color: '#FF9800'
                                   }}
                                 >
-                                  💵 ${p.product.price}
+                                  💵 {p.product.price} VND
                                 </Typography>
                                 <Typography 
                                   variant="body2"
@@ -404,7 +404,7 @@ const SellerOrders = () => {
                                     color: '#4CAF50'
                                   }}
                                 >
-                                  💰 Tổng: ${(p.product.price * p.quantity).toFixed(2)}
+                                  💰 Tổng: {(p.product.price * p.quantity)} VND
                                 </Typography>
                               </Box>
                             </Box>
@@ -434,7 +434,7 @@ const SellerOrders = () => {
                         WebkitTextFillColor: 'transparent'
                       }}
                     >
-                      💎 Tổng giá trị đơn hàng: ${order.totalPrice}
+                      💎 Tổng giá trị đơn: {order.tongTien} VND
                     </Typography>
                   </Box>
                 </CardContent>

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tân Lên Nhầm Kiệu Hoa Được Chồng Như Ý</title>
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .movie-header {
+            display: flex;
+            gap: 30px;
+            align-items: start;
+        }
+
+        .poster-container {
+            flex-shrink: 0;
+        }
+
+        .poster {
+            width: 250px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .poster:hover {
+            transform: scale(1.05);
+        }
+
+        .movie-info {
+            flex: 1;
+        }
+
+        .movie-title {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .info-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px 18px;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+        }
+
+        .info-label {
+            font-weight: bold;
+            color: #ffd700;
+            margin-right: 8px;
+        }
+
+        .content-description {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            line-height: 1.6;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Video Player */
+        .player-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .player-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Episodes */
+        .episodes-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .episode-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 15px;
+        }
+
+        .episode-item {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 15px;
+            border-radius: 12px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            font-weight: 500;
+        }
+
+        .episode-item:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .episode-item.active {
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            color: #333;
+            border-color: #ffd700;
+            font-weight: bold;
+            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.4);
+        }
+
+        .error-msg {
+            background: rgba(255, 0, 0, 0.2);
+            color: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 15px;
+            display: none;
+            border: 1px solid rgba(255, 0, 0, 0.3);
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            font-size: 1.2em;
+        }
+
+        /* Plyr customization */
+        .plyr {
+            border-radius: 15px;
+        }
+
+        .plyr--video {
+            background: #000;
+        }
+
+        .plyr__control--overlaid {
+            background: rgba(255, 215, 0, 0.9);
+        }
+
+        .plyr__control--overlaid:hover {
+            background: rgba(255, 215, 0, 1);
+        }
+
+        .plyr--full-ui input[type=range] {
+            color: #ffd700;
+        }
+
+        .plyr__control.plyr__tab-focus {
+            box-shadow: 0 0 0 5px rgba(255, 215, 0, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .movie-header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .poster {
+                width: 200px;
+            }
+
+            .movie-title {
+                font-size: 1.8em;
+            }
+
+            .episode-grid {
+                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div id="movie-details" class="loading">Đang tải thông tin phim...</div>
+        </div>
+
+        <div class="player-section">
+            <h2 class="section-title">🎬 Xem Phim</h2>
+            <div class="player-container">
+                <video id="player" playsinline controls>
+                    <source src="" type="application/x-mpegURL">
+                </video>
+            </div>
+            <div id="error-msg" class="error-msg"></div>
+        </div>
+
+        <div class="episodes-section">
+            <h2 class="section-title">📺 Danh Sách Tập</h2>
+            <div id="episode-list" class="episode-grid"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+
+    <script>
+        const API_URL = 'https://phimapi.com/phim/tan-len-nham-kieu-hoa-duoc-chong-nhu-y-kieu-hoa-hi-su';
+        let player;
+        let hls;
+
+        async function loadMovieData() {
+            try {
+                const response = await fetch(API_URL);
+                const data = await response.json();
+                if (data.status) {
+                    displayMovieInfo(data.movie);
+                    displayEpisodes(data.episodes[0].server_data);
+                }
+            } catch (error) {
+                console.error('Lỗi fetch API:', error);
+                document.getElementById('movie-details').innerHTML = '<p>❌ Lỗi tải dữ liệu phim.</p>';
+            }
+        }
+
+        function displayMovieInfo(movie) {
+            const details = document.getElementById('movie-details');
+            details.innerHTML = `
+                <div class="movie-header">
+                    <div class="poster-container">
+                        <img src="${movie.poster_url}" alt="${movie.name}" class="poster">
+                    </div>
+                    <div class="movie-info">
+                        <h1 class="movie-title">${movie.name}</h1>
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <span class="info-label">📅 Năm:</span>${movie.year}
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">🎭 Thể loại:</span>${movie.category.map(c => c.name).join(', ')}
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">🌍 Quốc gia:</span>${movie.country.map(c => c.name).join(', ')}
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">🎬 Đạo diễn:</span>${movie.director.join(', ')}
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">⭐ Diễn viên:</span>${movie.actor.join(', ')}
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">📊 Tình trạng:</span>${movie.episode_current}
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">🎥 Chất lượng:</span>${movie.quality} - ${movie.lang}
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">⏱️ Thời lượng:</span>${movie.time}
+                            </div>
+                        </div>
+                        <div class="content-description">
+                            <h3 style="margin-bottom: 10px;">📖 Nội dung phim</h3>
+                            <p>${movie.content}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function displayEpisodes(episodes) {
+            const list = document.getElementById('episode-list');
+            list.innerHTML = episodes.map((ep, index) => `
+                <div class="episode-item" data-m3u8="${ep.link_m3u8}">
+                    ${ep.name}
+                </div>
+            `).join('');
+
+            document.querySelectorAll('.episode-item').forEach((item, index) => {
+                item.addEventListener('click', (e) => {
+                    const m3u8Url = e.currentTarget.dataset.m3u8;
+                    playEpisode(m3u8Url);
+                    document.querySelectorAll('.episode-item').forEach(i => i.classList.remove('active'));
+                    e.currentTarget.classList.add('active');
+                });
+            });
+
+            if (episodes.length > 0) {
+                document.querySelector('.episode-item').classList.add('active');
+                playEpisode(episodes[0].link_m3u8);
+            }
+        }
+
+        function playEpisode(m3u8Url) {
+            const errorMsg = document.getElementById('error-msg');
+            errorMsg.style.display = 'none';
+
+            const video = document.getElementById('player');
+
+            if (Hls.isSupported()) {
+                if (hls) {
+                    hls.destroy();
+                }
+                hls = new Hls({
+                    enableWorker: true,
+                    lowLatencyMode: true,
+                });
+                hls.loadSource(m3u8Url);
+                hls.attachMedia(video);
+                
+                hls.on(Hls.Events.ERROR, function (event, data) {
+                    if (data.fatal) {
+                        errorMsg.textContent = '❌ Lỗi load video: Link có thể đã hết hạn hoặc server down. Vui lòng thử tập khác!';
+                        errorMsg.style.display = 'block';
+                    }
+                });
+
+                hls.on(Hls.Events.MANIFEST_PARSED, function() {
+                    if (!player) {
+                        player = new Plyr(video, {
+                            controls: ['play-large', 'play', 'progress', 'current-time', 'mute', 'volume', 'settings', 'fullscreen'],
+                            settings: ['quality', 'speed'],
+                            speed: { selected: 1, options: [0.5, 0.75, 1, 1.25, 1.5, 2] },
+                            quality: { default: 720, options: [1080, 720, 480, 360] },
+                            keyboard: { focused: true, global: true }
+                        });
+                    }
+                    video.play().catch(e => console.log('Autoplay prevented:', e));
+                });
+            } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                video.src = m3u8Url;
+                if (!player) {
+                    player = new Plyr(video, {
+                        controls: ['play-large', 'play', 'progress', 'current-time', 'mute', 'volume', 'settings', 'fullscreen'],
+                        keyboard: { focused: true, global: true }
+                    });
+                }
+                video.play().catch(e => console.log('Autoplay prevented:', e));
+            } else {
+                errorMsg.textContent = '❌ Trình duyệt không hỗ trợ phát video HLS!';
+                errorMsg.style.display = 'block';
+            }
+        }
+
+        loadMovieData();
+    </script>
+</body>
+</html>

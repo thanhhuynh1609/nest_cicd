@@ -51,11 +51,11 @@ const Login = () => {
   <Container maxWidth="sm">
     <Box 
       sx={{ 
-        minHeight: '100vh',
+        // minHeight: '100vh',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+        // background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
         py: 4
       }}
     >
@@ -79,7 +79,7 @@ const Login = () => {
             left: 0,
             right: 0,
             height: '4px',
-            background: 'linear-gradient(90deg, #667eea, #764ba2, #667eea)',
+            // background: 'linear-gradient(90deg, #667eea, #764ba2, #667eea)', 
             backgroundSize: '200% 100%',
             animation: 'shimmer 3s ease-in-out infinite',
             '@keyframes shimmer': {
@@ -231,9 +231,9 @@ const Login = () => {
               fontSize: '16px',
               fontWeight: 700,
               textTransform: 'none',
-              background: 'linear-gradient(45deg, #667eea 30%, #764ba2 90%)',
+              // background: 'linear-gradient(45deg, #667eea 30%, #764ba2 90%)',
               boxShadow: '0 8px 32px rgba(102, 126, 234, 0.4)',
-              color: 'white',
+              color: 'black',
               mb: 2,
               '&:hover': {
                 background: 'linear-gradient(45deg, #5a6fd8 30%, #6a4190 90%)',

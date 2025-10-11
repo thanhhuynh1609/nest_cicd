@@ -224,7 +224,7 @@ const ProductDetail = () => {
                       mb: 1
                     }}
                   >
-                    ${product.price}
+                    {product.price} VND
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
                     Giá đã bao gồm VAT
@@ -328,7 +328,7 @@ const ProductDetail = () => {
                           WebkitTextFillColor: 'transparent'
                         }}
                       >
-                        ${totalPrice}
+                        {totalPrice} VND
                       </Typography>
                     </Box>
                   </Box>
@@ -469,7 +469,7 @@ const ProductDetail = () => {
               📊 Số lượng: {quantity}
             </Typography>
             <Typography variant="body1" gutterBottom>
-              💰 Đơn giá: ${product.price}
+              💰 Đơn giá: {product.price} VND
             </Typography>
             <Box
               sx={{
@@ -493,7 +493,7 @@ const ProductDetail = () => {
                   WebkitTextFillColor: 'transparent'
                 }}
               >
-                ${totalPrice}
+                {totalPrice} VND
               </Typography>
             </Box>
           </Box>

@@ -301,7 +301,7 @@ const ProductManage = () => {
                       WebkitTextFillColor: 'transparent',
                     }}
                   >
-                    ${product.price}
+                    {product.price} VND
                   </Typography>
                 </Box>
                 
@@ -477,7 +477,7 @@ const ProductManage = () => {
           />
           
           <TextField
-            label="Giá (USD)"
+            label="Giá (VND)"
             type="number"
             fullWidth
             margin="normal"

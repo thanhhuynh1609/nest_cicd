@@ -115,14 +115,14 @@ const Footer = () => {
       <div style={styles.container}>
         {/* Cột 1 */}
         <div style={styles.col}>
-          <h3 style={styles.title}>Product Categories</h3>
+          <h3 style={styles.title}>Danh mục sản phẩm</h3>
           <ul>
             {[
-              "Electronics",
-              "Clothing",
-              "Home & Kitchen",
-              "Beauty & Personal Care",
-              "Accessories",
+              "Áo Polo",
+              "Quần Âu",
+              "Áo sơ mi",
+              "Chân Váy",
+              "Vest",
             ].map((item) => (
               <li key={item}>
                 <a href="#" style={styles.link}>
@@ -135,14 +135,14 @@ const Footer = () => {
 
         {/* Cột 2 */}
         <div style={styles.col}>
-          <h3 style={styles.title}>Customer Support</h3>
+          <h3 style={styles.title}>Hỗ trợ người dùng</h3>
           <ul>
             {[
-              "Contact Us",
-              "FAQ",
-              "Shipping Information",
-              "Returns Policy",
-              "Track Order",
+              "Liên hệ",
+              "Hỏi đáp",
+              "Thông tin địa chỉ",
+              "Bảo mật",
+              "Đơn hàng",
             ].map((item) => (
               <li key={item}>
                 <a href="#" style={styles.link}>
@@ -155,9 +155,9 @@ const Footer = () => {
 
         {/* Cột 3 */}
         <div style={styles.col}>
-          <h3 style={styles.title}>Company Information</h3>
+          <h3 style={styles.title}>Thông tin</h3>
           <ul>
-            {["About Us", "Careers", "Press", "Investor Relations"].map(
+            {["Về chúng tôi", "Công việc", "Press", "Investor Relations"].map(
               (item) => (
                 <li key={item}>
                   <a href="#" style={styles.link}>
@@ -171,7 +171,7 @@ const Footer = () => {
 
         {/* Cột 4 */}
         <div style={styles.col}>
-          <h3 style={styles.title}>Connect With Us</h3>
+          <h3 style={styles.title}>Liên hệ với chúng tôi</h3>
           <div style={styles.social}>
             <a href="#"><FaFacebook size={24} color="white" /></a>
             <a href="#"><FaTwitter size={24} color="white" /></a>
@@ -181,24 +181,24 @@ const Footer = () => {
 
           <form onSubmit={handleSubscribe}>
             <label style={{ display: "block", marginBottom: "8px" }}>
-              Subscribe to our newsletter
+              Đăng kí để nhận thông báo
             </label>
             <div style={styles.newsletter}>
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your email"
+                placeholder="Nhập email của bạn"
                 style={styles.input}
                 required
               />
               <button type="submit" style={styles.button}>
-                Subscribe
+                Đăng kí
               </button>
             </div>
             {isSubscribed && (
               <p style={{ marginTop: "8px", fontSize: "14px" }}>
-                Thank you for subscribing!
+                Cảm ơn đã đăng kí!
               </p>
             )}
           </form>
@@ -216,7 +216,7 @@ const Footer = () => {
 
         <div style={styles.secure}>
           <FaLock size={16} />
-          <span style={{ fontSize: "14px" }}>Secure Payments</span>
+          <span style={{ fontSize: "14px" }}>Bảo mật thanh toán</span>
         </div>
 
         <p style={{ fontSize: "14px" }}>
