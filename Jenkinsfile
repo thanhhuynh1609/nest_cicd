@@ -24,7 +24,7 @@ pipeline {
         checkout([$class: 'GitSCM',
           branches: [[name: '*/main']],
           userRemoteConfigs: [[
-            url: 'https://github.com/<your_username>/<your_repo>.git',
+            url: 'https://github.com/thanhhuynh1609/nest_cicd',
             credentialsId: 'github-pat'
           ]]
         ])
