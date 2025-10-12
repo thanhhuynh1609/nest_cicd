@@ -3,7 +3,7 @@ services:
   backend:
     image: huynhthanh1609/backend:${BACKEND_TAG:-latest}
     ports:
-      - "3001:3000"  # ← SỬA: 8080 → 3000
+      - "3001:8080"  # ← SỬA: 8080 → 3000
     environment:      # ← THÊM environment variables
       - DB_HOST=db
       - DB_PORT=5432
