@@ -55,7 +55,7 @@ pipeline {
 
         stage('Build Frontend') {
           steps {
-            dir('fe') {
+            dir('ecommerce-frontend') {
               sh """
                 docker build --pull -t docker.io/${DOCKER_USER}/frontend:${IMAGE_TAG} -t docker.io/${DOCKER_USER}/frontend:latest .
               """
