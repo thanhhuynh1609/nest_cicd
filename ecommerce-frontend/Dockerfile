@@ -8,7 +8,7 @@ COPY package*.json ./
 RUN npm ci
 
 # Set Node options to increase heap size for build (prevent OOM)
-ENV NODE_OPTIONS="--max-old-space-size=4096"
+ENV NODE_OPTIONS="--max-old-space-size=2048"
 
 # Copy source code and build
 COPY . .
