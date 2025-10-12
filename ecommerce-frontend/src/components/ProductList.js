@@ -204,7 +204,7 @@ const ProductList = () => {
             letterSpacing: '1px'
           }}
         >
-          Sản Phẩm Nổi Bật Nè Con Chó Ơi
+          Sản Phẩm Nổi Bật 
         </Typography>
         <Box
           sx={{
