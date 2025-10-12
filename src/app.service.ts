@@ -9,8 +9,8 @@ export class AppService implements OnModuleInit {
     await this.adminSeederService.seedAdmin();
   }
 
-  getHello(): string {
-    return 'Hello World!';
-  }
+  // getHello(): string {
+  //   return 'Hello World!';
+  // }
 }
 

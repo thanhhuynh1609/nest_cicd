@@ -32,8 +32,8 @@ import { OrderProduct } from './entities/order-product.entity';
     UserModule,
     AdminModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  // controllers: [AppController],
+  // providers: [AppService],
 })
 export class AppModule {}
 

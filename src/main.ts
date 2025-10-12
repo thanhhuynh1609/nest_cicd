@@ -1,5 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { ExpressAdapter } from '@nestjs/platform-express';
+import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';  // Thêm import này
 import 'dotenv/config';
 import express from 'express';
 import cors = require('cors');
@@ -23,15 +24,24 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule, new ExpressAdapter(server));
   app.setGlobalPrefix('api');
   
+  // Cấu hình Swagger
+  const config = new DocumentBuilder()
+    .setTitle('Product API Docs')  // Tiêu đề docs
+    .setDescription('API documentation for Product endpoints')  // Mô tả
+    .setVersion('1.0')  // Phiên bản
+    .addTag('products')  // Tag mặc định cho products
+    .addBearerAuth()  // Nếu dùng JWT auth, thêm Bearer token support
+    .build();
+  const document = SwaggerModule.createDocument(app, config);
+  SwaggerModule.setup('docs', app, document);  // Truy cập docs tại /api (ví dụ: http://localhost:8080/api)
+
   // Chạy admin seeder
   const adminSeeder = app.get(AdminSeederService);
   await adminSeeder.seedAdmin();
   
   await app.listen(process.env.PORT || 8080);
   console.log(`Application is running on: http://localhost:${process.env.PORT || 8080}`);
+  console.log('Swagger docs available at: http://localhost:${process.env.PORT || 8080}/api');
   console.log('Default admin user: admin / 123');
 }
 bootstrap();
-
-
-
