@@ -120,7 +120,7 @@ const Login = () => {
             Đăng Nhập
           </Typography>
           <Typography variant="body1" color="text.secondary">
-            Chào mừng bạn trở lại! Đăng nhập để tiếp tục mua sắm
+            Chào mừng bạn trở lại! Đăng nhập để tiếp tục mua sắm con chó 
           </Typography>
         </Box>
 
