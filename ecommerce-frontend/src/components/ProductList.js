@@ -127,29 +127,7 @@ const ProductList = () => {
           }
         }}
       >
-       <a 
-    href="https://8xbet.com"  // Thay bằng link thực tế của bạn
-    target="_blank" 
-    rel="noopener noreferrer"
-    style={{ 
-      textDecoration: 'none',
-      position: 'relative',  // Thêm để hỗ trợ zIndex
-      zIndex: 2,  // ← FIX CHÍNH: Đặt zIndex cao hơn ::before
-      display: 'block'  // Đảm bảo <a> block để wrap img đúng
-    }}
-  >
-    <img
-      src="https://media-static.cdnproz1.online/cakhiastatic/8xbet-700x70-6.gif"
-      style={{
-        width: "100%", 
-        height: "auto",
-        display: "block",
-        marginBottom: "20px",
-        cursor: 'pointer'
-      }}
-      alt="Quảng cáo 8xbet"
-    />
-  </a>
+       
         <img
           src="https://marketplace.canva.com/EAFoEJMTGiI/1/0/1600w/canva-beige-aesthetic-new-arrival-fashion-banner-landscape-cNjAcBMeF9s.jpg"
           alt="Best Seller Banner"
