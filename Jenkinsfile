@@ -5,7 +5,7 @@ pipeline {
     DOCKER_USER = "huynhthanh1609"   
     BACKEND_IMAGE = "backend"
     FRONTEND_IMAGE = "frontend" // Thay bằng Docker Hub username (hoặc set trong Jenkins global env)
-    SERVER_HOST = "54.252.205.252"           // Hoặc set bằng credential / param
+    SERVER_HOST = "3.27.240.73"           // Hoặc set bằng credential / param
     SERVER_USER = "ubuntu"                  // user SSH trên EC2
   }
 
